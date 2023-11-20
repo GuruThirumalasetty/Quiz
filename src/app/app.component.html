@@ -1,1 +1,27 @@
-Hiiiii . I am Aravind
+
+
+<div *ngIf="quizData && quizData.length > 0">
+  <h2>Question {{ currentQuestionIndex + 1 }}</h2>
+  <p>{{ quizData[currentQuestionIndex].question }}</p>
+
+  <form [formGroup]="answerFormGroup">
+    <div *ngFor="let option of quizData[currentQuestionIndex].options; let i = index">
+      <input
+        type="radio"
+        [id]="'option' + i"
+        [value]="option"
+        formControlName="selectedAnswer"
+      />
+      <label [for]="'option' + i">{{ option }}</label>
+    </div>
+  </form>
+  <div>
+    <button mat-button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">
+      Previous
+    </button>
+    <button mat-button (click)="nextQuestion()" [disabled]="currentQuestionIndex === quizData.length - 1">
+      Next
+    </button>
+  </div>
+</div>
+

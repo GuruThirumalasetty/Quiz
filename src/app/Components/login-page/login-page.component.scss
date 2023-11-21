@@ -1,0 +1,37 @@
+.input-typing-style{
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+   }
+   .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 50%;
+  }
+
+  /* Example CSS for customizing outlined appearance */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border-color: #999; /* Change the border color */
+  }
+  
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    border-color: #007bff; /* Change the border color when the field is focused */
+  }
+  
+  .card{
+    max-width: 413px;
+    margin-left: 614px;
+    margin-top: 197px;
+    max-height: 800px;
+  }
+  .back{
+    max-width: 80%;
+    max-height: 2900px;
+    margin-left: 54px;
+    margin-top: 69px;
+    background-color: aqua;
+  }

@@ -1,0 +1,57 @@
+// .box{
+//     // margin-top: 300px;
+//     margin: 10px 20px 0 20px;
+//     background-color:bisque;
+//     padding: 50px ;
+// }
+
+
+.scrolling-card {
+    width: auto; /* Adjust as needed */
+    overflow: hidden;
+    text-align: right;
+    margin: 0 20px;
+    background-color:burlywood;
+  }
+  .card{
+    background-color: antiquewhite;
+    margin: 0 20px;
+  }
+  
+  .scrolling-content {
+    white-space: nowrap;
+    animation: marquee 15s linear infinite; /* Change animation duration as needed */
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .timer{
+    text-align: right;
+  }
+
+  .timeleft{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .questions-list{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+    font-weight: 600
+  }
+  .options-list{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+//   .options-list:hover{
+//     color: blueviolet;
+//     font-weight: 600;
+//   }

@@ -1,0 +1,51 @@
+<mat-card class="scrolling-card">
+    <div class="scrolling-content">
+        <h1 class="questions-list"><b>GVR Entrance Test</b></h1>
+    </div>
+</mat-card>
+
+<br>
+<mat-card  class="card">
+    <div style="margin-left: 5rem;">
+        <div align="right" style="margin-right: 160px;">
+            <h1 class="timeleft">Time Left :{{ displayTime }}</h1>
+        </div>
+        <div>
+            <h1 class="questions-list" style="text-decoration: underline;">SET-A</h1>
+        </div>
+        <div *ngIf="quizData && quizData.length > 0">
+            <h2 style="font-family: 'Times New Roman', Times, serif;">Question {{ currentQuestionIndex + 1 }} of 5</h2>
+            <h1>
+                <p class="questions-list">{{ quizData[currentQuestionIndex].question }}</p>
+            </h1>
+    
+            <div *ngFor="let option of quizData[currentQuestionIndex].options; let i = index" class="options-list">
+                <input type="radio" [id]="'option' + i" [value]="option"
+                    [checked]="option === selectedAnswers[currentQuestionIndex]" (change)="selectAnswer(option)" />
+                <label [for]="'option' + i">{{ option }}</label>
+            </div>
+            <div style="margin-top: 4rem;margin-bottom: 3rem;">
+                <button mat-raised-button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0"
+                    style="margin-right: 70px;">
+                    Previous
+                </button>
+                <button mat-raised-button style="background-color: green;color: white;" (click)="nextQuestion()"
+                    [disabled]="currentQuestionIndex === quizData.length - 1">
+                    Next
+                </button>
+            </div>
+        </div>
+    
+    </div>
+    
+</mat-card>
+
+<!-- <div style="text-align: center;margin-top: 20px;">
+    <button mat-raised-button class="submitButton" type="submit" color="primary" (click)="submit()">Submit</button>
+</div> -->
+
+<!-- <div>
+    <h2><b>Note:</b></h2>
+    1.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit reprehenderit at illo ad voluptates repellendus odit ipsum tempore ab, mollitia eius optio omnis, eos architecto facere temporibus dolorem, quod dignissimos. <br>
+    2.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem vero minima blanditiis corrupti perspiciatis perferendis, soluta facere aut eveniet? Itaque, ducimus perspiciatis. Excepturi reprehenderit laudantium eligendi saepe beatae. Suscipit, exercitationem!
+  </div> -->

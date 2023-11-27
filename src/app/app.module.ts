@@ -13,6 +13,9 @@ import { QuestionPaperComponent } from './Components/question-paper/question-pap
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { SessionOutComponent } from './Components/session-out/session-out.component';
+import { DialogComponent } from './Components/question-paper/dialog/dialog.component';
+import { MatListModule } from '@angular/material/list';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { SessionOutComponent } from './Components/session-out/session-out.compon
     AppComponent,
     LoginPageComponent,
     QuestionPaperComponent,
-    SessionOutComponent
+    SessionOutComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,10 @@ import { SessionOutComponent } from './Components/session-out/session-out.compon
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule,
+    // FlexLayoutModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

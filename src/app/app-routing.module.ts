@@ -4,6 +4,7 @@ import { LoginPageComponent } from './Components/login-page/login-page.component
 import { AppComponent } from './app.component';
 import { QuestionPaperComponent } from './Components/question-paper/question-paper.component';
 import { SessionOutComponent } from './Components/session-out/session-out.component';
+import { DialogComponent } from './Components/question-paper/dialog/dialog.component';
 
 const routes: Routes = [{
   path:'',
@@ -16,6 +17,10 @@ const routes: Routes = [{
 {
   path:"sessionout",
   component:SessionOutComponent,
+},
+{
+  path:"instructions",
+  component:DialogComponent,
 }
 ];
 

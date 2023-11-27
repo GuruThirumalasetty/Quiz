@@ -1,0 +1,38 @@
+<!-- 
+<mat-card class="card">
+    <h2> <span class="font-style-title">GVR ENTRANCE TEST</span></h2>
+   
+    <mat-card class="matcard-patient-form">
+        <h1 fxLayout.xs="column" class="title-sub-style"><b>Instruction:</b></h1>
+        <b class="title-sub-style">.</b><span class="title-sub-style">Number</span>
+       
+    </mat-card>
+    <br>
+</mat-card> -->
+
+<mat-card class="card">
+    <mat-card-content>
+        <h2> <span class="font-style-title"> GVR ENTRANCE TEST</span></h2>
+      <h2 mat-subheader style="margin-left: -600px;"><b>Instructions:</b></h2>
+      <div>
+      <ul class="mat-list">
+        <li class="mat-body-1"><span class="span1">Number of questions:<b>6</b></span></li>
+        <li class="mat-body-1"><span class="span">Having Time Limit of:<b>10Mins</b></span></li>
+        <li class="mat-body-1"><span class="span">Number of attempts allowed:<b>1</b></span></li>
+        <li class="mat-body-1"><span class="span">Questions displayed per page:<b>1</b></span></li>
+        <li class="mat-body-1"><span class="span2">We will allow you to go back and change your answers.</span></li>
+      </ul>
+    </div>
+    </mat-card-content>
+    <div style="text-align: left;">
+       
+    </div>
+    <div style="text-align: right;">
+        <button mat-raised-button type="submit" color="primary" style="margin-right: 600px;color:aliceblue;background-color:orange;"
+        (click)="backpage()"> <mat-icon>arrow_back</mat-icon>Back</button>
+        <button mat-raised-button type="submit" color="primary" style="margin-right: 10px;color:aliceblue;background-color:orange;"
+        (click)="nextpage()">Next<mat-icon>arrow_forward</mat-icon></button>
+    </div>
+   <br>
+  </mat-card>
+

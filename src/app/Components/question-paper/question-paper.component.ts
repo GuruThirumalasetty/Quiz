@@ -2,13 +2,21 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { QuizService } from '../quiz.service';
 import { Router } from '@angular/router';
+
+interface QuizQuestion {
+  id: number;
+  question: string;
+  answered: boolean;
+}
+
 @Component({
   selector: 'app-question-paper',
   templateUrl: './question-paper.component.html',
   styleUrls: ['./question-paper.component.scss']
 })
 export class QuestionPaperComponent {
-  durationInSeconds: number = 5; 
+  circles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  durationInSeconds: number = 915; 
   displayTime: string = '';
   title = 'Quiz';
   selectedAnswers: any[] = [];
@@ -55,8 +63,9 @@ export class QuestionPaperComponent {
   timerExpired() {
     console.log('Time is up!');
   }
-  selectAnswer(option: any) {
-    this.selectedAnswers[this.currentQuestionIndex] = option;
+  selectAnswer(option: any,id:number) {
+    debugger
+    this.selectedAnswers[this.currentQuestionIndex] = {id:id,checkedOption:option};
   }
   nextQuestion() {
     this.currentQuestionIndex++;
@@ -65,21 +74,45 @@ export class QuestionPaperComponent {
     this.currentQuestionIndex--;
    
   }
-  submit() {
-    this.quizCompleted= true;
-      let correctCount = 0;
-      let wrongCount = 0
-    this.quizData.map((x:any)=>{
-      if(this.selectedAnswers.includes(x.correctAnswer)){
-        correctCount++
+  // submit() {
+  //   debugger
+  //   this.quizCompleted= true;
+  //     let correctCount = 0;
+  //     let wrongCount = 0
+  //   this.quizData.map((x:any)=>{
+  //     if(this.selectedAnswers.includes(x.correctAnswer)){
+  //       correctCount++
+  //     }
+  //     else{
+  //       wrongCount++
+  //     }
+  //   })
+  //   Swal.fire(correctCount + 'answers correct',wrongCount + 'answers Wrong')
+  //   Swal.fire({
+  //     text:'Correct Answers : ' + correctCount + ' , Wrong Answers : ' + wrongCount
+  //   })
+  // }
+
+  selectQuestion(qId:number){
+    debugger
+    this.currentQuestionIndex =qId-1
+  }
+  submit(){
+    debugger
+    let correctCount =0;
+    let wrongCount = 0
+    this.selectedAnswers.forEach(selected => {
+      const question = this.quizData.find(q => q.id === selected.id);
+      if (question && question.correctAnswer === selected.checkedOption) {
+        correctCount++;
       }
       else{
         wrongCount++
       }
-    })
-    Swal.fire(correctCount + 'answers correct',wrongCount + 'answers Wrong')
+    });
     Swal.fire({
-      text:'Correct Answers : ' + correctCount + ' , Wrong Answers : ' + wrongCount
-    })
+           text:'Correct Answers : ' + correctCount + ' , Wrong Answers : ' + wrongCount
+         })
   }
-}
+  }
+

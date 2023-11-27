@@ -15,12 +15,9 @@ export class LoginPageComponent {
   constructor(private router: Router) {}
 
   login() {
-    // Perform validation - Check if username and password are correct
-    if (this.username === 'Aravind' && this.password === 'Aravind@123') {
-      // Redirect to the quiz component or any desired route upon successful login
-      this.router.navigate(['/Questionpaper']);
+    if (this.username === '' && this.password === '') {
+      this.router.navigate(['/instructions']);
     } else {
-      // Handle incorrect login credentials
       alert('Invalid username or password. Please try again.');
     }
   }

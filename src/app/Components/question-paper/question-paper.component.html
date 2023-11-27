@@ -1,51 +1,108 @@
 <mat-card class="scrolling-card">
     <div class="scrolling-content">
-        <h1 class="questions-list"><b>GVR Entrance Test</b></h1>
+        <h1 class="questions-list" style="margin-top: 10PX;"><b>GVR ENTRANCE TEST</b></h1>
     </div>
 </mat-card>
 
 <br>
-<mat-card  class="card">
-    <div style="margin-left: 5rem;">
+<div class="row">
+    <div class="column-75 card">
+        <div class="rows">
+            <div class="column-70">
+                <div style="margin-top: 10px;margin: 20px;">
+                    <h1 style="font-family: initial;font-weight: 600;"> .Net Random subjective Quiz</h1>
+                </div>
+
+            </div>
+            <div class="column-20">
+                <div style="margin-top: 10px; ">
+                    <h4><span style="font-family: initial;margin: 10px;">Maximum Marks:<span
+                                style="font-family: initial;color: green;">1.00</span></span>&nbsp;<span
+                            style="font-family: initial;">Negative Marks:<span
+                                style="font-family: initial;color: red;">0.00</span></span></h4>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-left: 2.2rem; margin-top: 4rem;">
+            <div>
+                <h1 class="questions-list" style="text-decoration: underline;">SET-A</h1>
+            </div>
+            <div *ngIf="quizData && quizData.length > 0">
+                <h2 style="font-family: 'Times New Roman', Times, serif;">Question {{ currentQuestionIndex + 1 }} of 5
+                </h2>
+                <h1>
+                    <p class="questions-list">{{ quizData[currentQuestionIndex].question }}</p>
+                </h1>
+
+                <div *ngFor="let option of quizData[currentQuestionIndex].options; let i = index" class="options-list">
+                    <input type="radio" [id]="'option' + i" [value]="option"
+                        [checked]="option === selectedAnswers[currentQuestionIndex]?.checkedOption"
+                        (change)="selectAnswer(option,quizData[currentQuestionIndex].id)" />
+                    <label [for]="'option' + i">{{ option }}</label>
+                </div>
+                <div style="margin-top: 4rem;margin-bottom: 3rem;">
+                    <button mat-raised-button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0"
+                        style="margin-right: 70px;">
+                        Previous
+                    </button>
+                    <button mat-raised-button style="background-color: green;color: white;" (click)="nextQuestion()"
+                        [disabled]="currentQuestionIndex === quizData.length - 1">
+                        Next
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="rowss" style="margin-top: 20px;  border: 1px solid #000; ">
+            <div class="column-left">
+                &nbsp;&nbsp;<button mat-raised-button
+                    style="background-color:  rgb(3 169 244 / 19%);color: black ;border: 1px solid #2196F3;font-family: initial;">Mark
+                    For Review & Next</button>&nbsp;
+                <button mat-raised-button
+                    style="background-color: rgb(3 169 244 / 19%);color: black;border: 1px solid #2196F3;font-family: initial;">Skip</button>&nbsp;
+                <button mat-raised-button
+                    style="background-color: rgb(3 169 244 / 19%);color:  black;border: 1px solid #2196F3;font-family: initial;">Reset</button>
+            </div>
+            <div class="column-right">
+                <button mat-raised-button style="background-color: green;color: white;">Save & Next</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="column-25 card ">
+        <div class="column" style="margin-left: 191px;margin-top: 35px;">
+            <!-- <mat-icon >account_circle</mat-icon> -->
+            <button mat-icon-button matTooltip="My Account">
+                <mat-icon style="background-image: url('../../../assets/img/icons8-male-user-48.png');  background-repeat: no-repeat;
+                 background-position: left;background-size: 37px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+            </button>
+            <h2 class="profile">M.Aravind</h2>
+        </div>
         <div align="right" style="margin-right: 160px;">
             <h1 class="timeleft">Time Left :{{ displayTime }}</h1>
+            <h2 class="timeleft">Welcome Test</h2>
         </div>
+       
+        <mat-divider style="margin: 10px 0;"></mat-divider>
+            <div class="circles">
+<div *ngFor="let question of quizData" style="margin: auto;">
+    <div class="circle" [ngClass]="selectedAnswers[question.id-1] ? 'green' : 'white'" (click)="selectQuestion(question.id)">
         <div>
-            <h1 class="questions-list" style="text-decoration: underline;">SET-A</h1>
+            {{ question.id }}
         </div>
-        <div *ngIf="quizData && quizData.length > 0">
-            <h2 style="font-family: 'Times New Roman', Times, serif;">Question {{ currentQuestionIndex + 1 }} of 5</h2>
-            <h1>
-                <p class="questions-list">{{ quizData[currentQuestionIndex].question }}</p>
-            </h1>
-    
-            <div *ngFor="let option of quizData[currentQuestionIndex].options; let i = index" class="options-list">
-                <input type="radio" [id]="'option' + i" [value]="option"
-                    [checked]="option === selectedAnswers[currentQuestionIndex]" (change)="selectAnswer(option)" />
-                <label [for]="'option' + i">{{ option }}</label>
-            </div>
-            <div style="margin-top: 4rem;margin-bottom: 3rem;">
-                <button mat-raised-button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0"
-                    style="margin-right: 70px;">
-                    Previous
-                </button>
-                <button mat-raised-button style="background-color: green;color: white;" (click)="nextQuestion()"
-                    [disabled]="currentQuestionIndex === quizData.length - 1">
-                    Next
-                </button>
-            </div>
-        </div>
-    
     </div>
-    
-</mat-card>
+</div>
+            </div>
+        <div style="margin-top: 10rem;">
+            <mat-divider></mat-divider>
+            <div class="circles-legend" style="margin-left: 27px;margin-top: 20px;">
+                <div class="circle-ans" style="background-color: green;"></div>
+                <div style="margin-top: 3px;">Answered</div>
+                <div class="circle-ans" style="margin-left: 20px;"></div>
+                <div style="margin-top: 3px;">Not answered</div>
+            </div>
+        </div>
 
-<!-- <div style="text-align: center;margin-top: 20px;">
-    <button mat-raised-button class="submitButton" type="submit" color="primary" (click)="submit()">Submit</button>
-</div> -->
-
-<!-- <div>
-    <h2><b>Note:</b></h2>
-    1.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit reprehenderit at illo ad voluptates repellendus odit ipsum tempore ab, mollitia eius optio omnis, eos architecto facere temporibus dolorem, quod dignissimos. <br>
-    2.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem vero minima blanditiis corrupti perspiciatis perferendis, soluta facere aut eveniet? Itaque, ducimus perspiciatis. Excepturi reprehenderit laudantium eligendi saepe beatae. Suscipit, exercitationem!
-  </div> -->
+    </div>
+</div>

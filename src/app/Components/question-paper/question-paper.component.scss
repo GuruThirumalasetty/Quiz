@@ -14,7 +14,7 @@
     background-color:burlywood;
   }
   .card{
-    background-color: antiquewhite;
+   background-color: antiquewhite;
     margin: 0 20px;
   }
   
@@ -55,3 +55,119 @@
 //     color: blueviolet;
 //     font-weight: 600;
 //   }
+
+
+
+.row {
+  display: flex;
+  height: 87%;
+}
+
+.column-75 {
+  flex: 0 0 73%;
+  margin-right: 0%;
+  border: 1px solid #000;
+}
+
+.column-25 {
+  flex: 0 0 25%;
+  margin-left: 0%;
+  border: 1px solid #000;
+}
+
+.rows {
+  display: flex;
+}
+
+.column-70 {
+  flex: 0 0 70%;
+}
+
+.column-20 {
+  flex: 0 0 30%;
+  border: 1px solid #000; 
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: -7px;
+  background-color: #fff;
+}
+.rowss{
+  overflow: hidden; 
+  background-color: aliceblue;
+  margin-top: 20px;
+}
+
+.column-left {
+  float: left;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.column-right {
+  float: right;
+  width: 30%;
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
+.circles {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.circle {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  background-color: #fff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000; 
+  font-weight: bold; 
+  margin-right: 10px; 
+  cursor: pointer;
+}
+
+.indicator {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.answered {
+  color: green; 
+}
+
+.unanswered {
+  color: red; 
+}
+.circles-legend{
+  display: flex;
+  flex-wrap: wrap; 
+  //gap: 30px; 
+}
+.circle-ans{
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%; 
+  background-color: #fff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000; 
+  font-weight: bold; 
+  margin-right: 10px; 
+}
+.green{
+  background-color: green;
+  color: white;
+}
+.white{
+  background-color: white;
+}
+.profile{
+  font-weight: bold; 
+  font-family: 'Times New Roman', Times, serif;
+ 
+}

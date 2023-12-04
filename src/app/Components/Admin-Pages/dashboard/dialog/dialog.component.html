@@ -1,0 +1,26 @@
+<mat-icon class="close-icon" [mat-dialog-close]="true">close</mat-icon>
+<mat-form-field appearance="outline" style="width: 40%;margin-left: 30%;">
+    <mat-label>Enter the No Of Questions</mat-label>
+    <input matInput (keypress)="numberOnly($event)" (ngModelChange)="noOfQuestions($event)" [(ngModel)]="noOfQues">
+</mat-form-field>
+<div style="padding: 0 5%;" *ngIf="questionArray[index]">
+    <h2>Question {{index+1}}</h2>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Quiz Name</mat-label>
+        <input matInput [(ngModel)]="questionArray[index].question">
+    </mat-form-field>
+    <h2>Options</h2>
+    <mat-form-field appearance="outline" style="width: 100%;" *ngFor="let option of questionArray[index].options; let i = index">
+        <mat-label>Option A</mat-label>
+        <input matInput [(ngModel)]="questionArray[index].options[i]">
+    </mat-form-field>
+    <div mat-dialog-actions align="center">
+        <button mat-raised-button color="warn" (click)="previous()"> Previous</button>
+        <button style="margin-left:8px" mat-raised-button color="primary" (click)="next()">Next</button>
+    </div>
+</div>
+
+<!--  *ngFor="let arr of questionArray[index]" -->
+<div>
+    <button mat-raised-button (click)="submit()">Submit</button>
+</div>

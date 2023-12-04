@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./question-paper.component.scss']
 })
 export class QuestionPaperComponent {
-  durationInSeconds: number = 5; 
+  durationInSeconds: number = 600; 
   displayTime: string = '';
   title = 'Quiz';
   selectedAnswers: any[] = [];
@@ -81,5 +81,8 @@ export class QuestionPaperComponent {
     Swal.fire({
       text:'Correct Answers : ' + correctCount + ' , Wrong Answers : ' + wrongCount
     })
+  }
+  dashBoard(){
+    this.router.navigate(['/dashBoard']);
   }
 }
